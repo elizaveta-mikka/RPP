@@ -52,13 +52,16 @@ class Dict:
     def __getitem__(self, item):
         self.n = len(self.__dict__)
         if item < self.n:
-            return self.__dict__[item]
+            return self.__dict__[str(item)]
 
     def __next__(self):
         if self.k < self.n:
             nx = self.__dict__[str(self.k)]
             self.k += 1
             return nx
+        else:
+            print('Итератор опусташен')
+
 
 
 class Ex_Dict(Dict):
@@ -123,5 +126,6 @@ print("Хотите ввнести новые записи в файл?\n1.Да"
 an = input()
 if an == 1:
     add(my_dict, col, n)
+
 
 
