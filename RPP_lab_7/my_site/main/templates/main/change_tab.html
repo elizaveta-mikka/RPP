@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение</title>
+    <link type="text/css" href="{% static 'main/css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+<header align="center">
+    <div>
+        <ul>
+            <li><a href="">Главная</a></li>
+            <li><a href="tables.html">Таблицы</a></li>
+            <li><a href="change_tab.html">Комментарии</a></li>
+            <li><a href="admin/">Админ-панель</a></li>
+        </ul>
+    </div>
+</header>
+
+<p align="center">Работа с таблицей комментраиев</p>
+<div align="center">
+<form method="get">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>ID поста</td>
+            <td>ID пользователя</td>
+            <td>Дата</td>
+            <td>Текст</td>
+            <td>Лайки</td>
+            <td></td>
+            <td></td>
+        </tr>
+{% for c in comments %}
+        <tr>
+            <td>
+                <input type="text" id="id_rec" name="id_rec" value="{{ c.pk }}" readonly>
+            </td>
+            <td>{{c.id_post}}</td>
+            <td>{{c.id_user}}</td>
+            <td>{{c.date}}</td>
+            <td>{{c.text}}</td>
+            <td>{{c.n_like}}</td>
+            <td><input  id="image-button1" type="submit" value="" name="del"></td>
+            <td><input  id="image-button2" type="submit" value="" name="up"></td>
+        </tr>
+    {% endfor %}
+    </table>
+    <div align="center">
+        <input  id="image-button" type="submit" name="cr" value="">
+    </div>
+</form>
+</div>
+</body>
+</html>

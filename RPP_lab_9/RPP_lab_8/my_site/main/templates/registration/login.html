@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p align="center" class="P">Вход</p>
+    {% if form.errors %}
+        <p>{{ form.errors.error }}</p>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        <table class="tab_form">
+            {% for f in form %}
+            <tr>
+                <td><p>{{f.label}}</p></td>
+                <td>{{f}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% csrf_token %}
+        <p></p>
+        <button type="submit" class="but_uc">Войти</button>
+    </form>
+
+{% endblock %}

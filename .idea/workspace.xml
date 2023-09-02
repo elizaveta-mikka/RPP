@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbd65cc8-906d-4f7d-9152-43b7f80cd946" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Lab_4/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lab_4/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ДЗ_2_Полиморфизм/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/ДЗ_2_ООП/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ДЗ_2_Полиморфизм/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ДЗ_2_ООП/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ДЗ_2_Полиморфизм/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ДЗ_2_ООП/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ДЗ_2_Полиморфизм/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ДЗ_2_ООП/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ДЗ_2_Полиморфизм/.idea/pythonProject4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ДЗ_2_ООП/.idea/pythonProject4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ДЗ_2_Полиморфизм/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ДЗ_2_ООП/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,13 +23,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eliza/PycharmProjects&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/eliza/PycharmProjects",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,6 +40,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676915412009</updated>
+      <workItem from="1693612894420" duration="93000" />
     </task>
     <servers />
   </component>

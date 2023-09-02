@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблицы</title>
+    <link type="text/css" href="{% static 'main/css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+<header align="center">
+    <div>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="tables.html">Таблицы</a></li>
+            <li><a href="change_tab.html">Комментарии</a></li>
+            <li><a href="admin/">Админ-панель</a></li>
+        </ul>
+    </div>
+</header>
+
+<p align="center">Таблица - Пользователи</p>
+
+<div align="center">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Фамилия</td>
+            <td>Имя</td>
+            <td>Отчество</td>
+            <td>Никнейм</td>
+            <td>Дата регистрации</td>
+            <td>Дата рождения</td>
+        </tr>
+{% for u in users %}
+        <tr>
+            <td>{{u.pk}}</td>
+            <td>{{u.surname}}</td>
+            <td>{{u.name}}</td>
+            <td>{{u.pat_name}}</td>
+            <td>{{u.nick}}</td>
+            <td>{{u.date_reg}}</td>
+            <td>{{u.date_b}}</td>
+        </tr>
+{% endfor %}
+    </table>
+</div>
+
+<p align="center">Таблица - Посты</p>
+<div align="center">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Просмотры</td>
+            <td>Лайки</td>
+            <td>Комментарии</td>
+            <td>ID автора</td>
+            <td>ID темы</td>
+        </tr>
+{% for p in posts %}
+        <tr>
+            <td>{{p.pk}}</td>
+            <td>{{p.n_view}}</td>
+            <td>{{p.n_like}}</td>
+            <td>{{p.n_comm}}</td>
+            <td>{{p.id_author.all}}</td>
+            <td>{{p.id_topic.all}}</td>
+        </tr>
+{% endfor %}
+    </table>
+</div>
+
+<p align="center">Таблица - Авторы</p>
+<div align="center">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Посты</td>
+            <td>Просмотры</td>
+            <td>Лайки</td>
+            <td>ID пользователя</td>
+        </tr>
+{% for a in authors %}
+        <tr>
+            <td>{{a.pk}}</td>
+            <td>{{a.n_post}}</td>
+            <td>{{a.n_view}}</td>
+            <td>{{a.n_like}}</td>
+            <td>{{a.id_user}}</td>
+        </tr>
+{% endfor %}
+    </table>
+</div>
+
+<p align="center">Таблица - Темы обсуждения</p>
+<div align="center">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>Название</td>
+            <td>Дата создания</td>
+            <td>Посты</td>
+            <td>Просмотры</td>
+            <td>Лайки</td>
+        </tr>
+{% for t in topics %}
+        <tr>
+            <td>{{t.pk}}</td>
+            <td>{{t.name_t}}</td>
+            <td>{{t.date_cr}}</td>
+            <td>{{t.n_post}}</td>
+            <td>{{t.n_view}}</td>
+            <td>{{t.n_like}}</td>
+        </tr>
+{% endfor %}
+    </table>
+</div>
+
+<p align="center">Таблица - Комментарии</p>
+<div align="center">
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>ID поста</td>
+            <td>ID пользователя</td>
+            <td>Дата</td>
+            <td>Текст</td>
+            <td>ID темы</td>
+        </tr>
+{% for c in comments %}
+        <tr>
+            <td>{{c.pk}}</td>
+            <td>{{c.id_post}}</td>
+            <td>{{c.id_user}}</td>
+            <td>{{c.date}}</td>
+            <td>{{c.text}}</td>
+            <td>{{c.n_like}}</td>
+        </tr>
+{% endfor %}
+    </table>
+</div>
+
+
+</body>
+</html>

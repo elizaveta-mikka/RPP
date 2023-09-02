@@ -1,0 +1,32 @@
+version: '3'
+
+volumes:
+    pgdata:
+        driver: local
+services:
+    nginx:
+        restart: always
+        image: nginx:latest
+        expose:
+          - 8080
+        ports:
+          - "80:8080"
+        volumes:
+            - ./my_site/static:/srv/www/my_site/static
+            - ./my_site/media:/srv/www/my_site/media
+            - ./my_site/logs:/srv/www/my_site/logs
+            - ./docker/nginx:/etc/nginx/conf.d
+        depends_on:
+            - python
+    python:
+        restart: always
+        build:
+            context: .
+            dockerfile: docker/python/Dockerfile
+        volumes:
+            - ./RPP_lab_8:/srv/www/<project>
+        expose:
+          - 8000
+        ports:
+            - 8000:8000
+        command: "gunicorn -c gunicorn.py my_site.wsgi"

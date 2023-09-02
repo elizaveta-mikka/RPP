@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение</title>
+    <link type="text/css" href="{% static 'main/css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+<header align="center">
+    <div>
+        <ul>
+            <li><a href="">Главная</a></li>
+            <li><a href="tables.html">Таблицы</a></li>
+            <li><a href="change_tab.html">Комментарии</a></li>
+            <li><a href="admin/">Админ-панель</a></li>
+        </ul>
+    </div>
+</header>
+
+<p align="center">Обновление записи {{ id_rec }} из таблицы комментарии</p>
+
+<form method="get">
+    <table>
+        <tr>
+            <td><p class="new_p">ID записи</p></td>
+            <td><p class="new_p"><input class="form_up" type="number" value="{{id_rec}}" name="id_rec" readonly></p></td>
+        </tr>
+        <tr>
+            <td><p class="new_p">ID поста</p></td>
+            <td><p class="new_p"><input class="form_up" type="number" min="1" max="{{ len_ps }}" name="new_id_ps"></p></td>
+        </tr>
+        <tr>
+            <td><p class="new_p">ID пользователя</p></td>
+            <td><p class="new_p"><input class="form_up" type="number" min="1" max="{{len_us}}" name="new_id_us"></p></td>
+        </tr>
+        <tr>
+            <td><p class="new_p">Дата</p></td>
+            <td><p class="new_p"><input class="form_up" type="date" name="new_date"></p></td>
+        </tr>
+        <tr>
+            <td><p class="new_p">Текст</p></td>
+            <td><p class="new_p"><input id="text_up"  type="text" value="{{this_com.text}}" name="new_text"></p></td>
+        </tr>
+        <tr>
+            <td><p class="new_p">Лайки</p></td>
+            <td><p class="new_p"><input class="form_up" type="number" min="0" value="{{this_com.n_like}}" name="new_like"></p></td>
+        </tr>
+        <tr>
+            <td><p class="new_p">
+                <input id="button_up" type="submit" name="update" value="Сохранить изменения">
+            </p></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p align="center">Редактирование таблицы - {{name}}</p>
+<div align="center">
+<form method="get">
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    <table class="d_tables">
+        <thead>
+            <tr>
+                {% for i in list %}
+                <th>{{i}}</th>
+                {% endfor %}
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+    {% for t in table %}
+        <tbody>
+            <tr>
+                {% if name == 'Посты' %}
+                    <td>{{t.pk}}</td>
+                    <td>{{t.date_post}}</td>
+                    <td>{{t.n_view}}</td>
+                    <td>{{t.n_like}}</td>
+                    <td>{{t.n_comm}}</td>
+                    <td>{% for aut in t.id_author.all %}  {{aut.pk}}   {% endfor %}</td>
+                    <td>{% for top in t.id_topic.all %}  {{top.pk}}   {% endfor %}</td>
+                {% elif name == 'Авторы' %}
+                    <td>{{t.id_user.id}}</td>
+                    <td>{{t.n_post}}</td>
+                    <td>{{t.n_view}}</td>
+                    <td>{{t.n_like}}</td>
+                {% elif name == 'Комментарии' %}
+                    <td>{{t.pk}}</td>
+                    <td>{{t.id_post.id}}</td>
+                    <td>{{t.id_user.id}}</td>
+                    <td>{{t.date}}</td>
+                    <td>{{t.text}}</td>
+                    <td>{{t.n_like}}</td>
+                {% elif name == 'Пользователи' %}
+                    <td>{{t.pk}}</td>
+                    <td>{{t.surname}}</td>
+                    <td>{{t.name}}</td>
+                    <td>{{t.pat_name}}</td>
+                    <td>{{t.nick}}</td>
+                    <td>{{t.date_reg}}</td>
+                    <td>{{t.date_b}}</td>
+                {% else %}
+                    <td>{{t.pk}}</td>
+                    <td>{{t.name_t}}</td>
+                    <td>{{t.date_cr}}</td>
+                    <td>{{t.n_post}}</td>
+                    <td>{{t.n_view}}</td>
+                    <td>{{t.n_like}}</td>
+                {% endif %}
+                {% if name == "Авторы" %}
+                    <td width="30px"><a href="../delete_{{tb}}_{{t.id_user.id}}" class="a_but"><img src="../../static/main/images/delete.png" width="30px" height="30px"></a></td>
+                    <td width="30px"><a href="../update_{{tb}}_{{t.id_user.id}}" class="a_but"><img src="../../static/main/images/update.png" width="30px" height="30px"></a></td>
+                {% else %}
+                    <td width="30px"><a href="../delete_{{tb}}_{{t.id}}" class="a_but"><img src="../../static/main/images/delete.png" width="30px" height="30px"></a></td>
+                    <td width="30px"><a href="../update_{{tb}}_{{t.id}}" class="a_but"><img src="../../static/main/images/update.png" width="30px" height="30px"></a></td>
+                {% endif %}
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+    <div align="center">
+        <a href="../create_{{tb}}/" ><img src="../../static/main/images/create.png" width="60px" height="60px"></a></td>
+    </div>
+</form>
+</div>
+
+{% endblock %}

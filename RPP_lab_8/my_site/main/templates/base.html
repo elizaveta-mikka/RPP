@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+  <link type="text/css" href="{% static 'main/css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+<header class="st_head">
+    <div>
+        <ul class="ul_head">
+            <li><a href="{% url 'home' %}">Главная</a></li>
+            {% if user.is_staff %}
+                <li><a href="{% url 'edit' %}">Редактирование</a></li>
+            {% endif %}
+            <li><a href="../admin/">Админ-панель</a></li>
+        </ul>
+    </div>
+    <div>
+        <ul class="ul_head">
+            {% if user.is_anonymous %}
+                <li><a href="{% url 'register' %}">Регистрация</a></li>
+                <li><a href="{% url 'login' %}">Вход</a></li>
+            {% else %}
+                <li><p class="a">Пользователь:</p></li>
+                <li><p class="a">{{user}}</p></li>
+                <li><a href="{% url 'logout' %}">Выход</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</header>
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

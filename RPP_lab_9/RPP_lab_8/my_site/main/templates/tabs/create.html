@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p align="center">Добавление записи в таблицу {{name}}</p>
+
+<form method="POST" action="../save_{{tb}}_{{new_id}}/">
+    {% csrf_token %}
+    <table class="tab_form">
+        <tr>
+            <td><p>ID</p></td>
+            {% if name == "Авторы" %}
+                <td><p><select class="form_uc" name="id_user">
+                    {% for i in list_id %}
+                        <option class="form_uc" value={{i}}>{{i}}</option>
+                    {% endfor %}
+                </select></p></td>
+            {% else %}
+                <td><p>{{new_id}}</p></td>
+            {% endif %}
+        </tr>
+        {% if name == 'Посты' %}
+            <tr>
+                <td><p>{{list.1}}</p></td>
+                <td><p><input class="form_uc" type="date" name="date_post" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.2}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_view" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.3}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_like" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.4}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_comm" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.5}}</p></td>
+                <td><p>
+                    {% for a in list_a %}
+                        {{a}} <input class="form_cb" type="checkbox" name="au_s[]" value="{{a}}">
+                        &nbsp&nbsp&nbsp
+                    {% endfor %}
+                </p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.6}}</p></td>
+                <td><p>
+                    {% for t in list_t %}
+                        {{t}} <input class="form_cb" type="checkbox" name="top_s[]" value="{{t}}"><br>
+                    {% endfor %}
+                </p></td>
+            </tr>
+        {% elif name == 'Авторы' %}
+            <tr>
+                <td><p>{{list.1}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_post" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.2}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_view" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.3}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_like" required></p></td>
+            </tr>
+        {% elif name == 'Комментарии' %}
+            <tr>
+                <td><p>{{list.1}}</p></td>
+                <td><p><select class="form_uc" name="id_post">
+                    {% for i in list_ps %}
+                        <option class="form_uc">{{i}}</option>
+                    {% endfor %}
+                </select></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.2}}</p></td>
+                <td><p><select class="form_uc" name="id_user">
+                    {% for i in list_us %}
+                        <option class="form_uc">{{i}}</option>
+                    {% endfor %}
+                </select></p></td>
+            </tr>
+                <td><p>{{list.3}}</p></td>
+                <td><p><input class="form_uc" type="date" name="date" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.4}}</p></td>
+                <td><p><textarea class="form_text" name="text" required></textarea></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.5}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_like" required></p></td>
+            </tr>
+        {% elif name == 'Пользователи' %}
+            <tr>
+                <td><p>{{list.1}}</p></td>
+                <td><p><input class="form_uc" type="text" name="surname" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.2}}</p></td>
+                <td><p><input class="form_uc" type="text" name="name" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.3}}</p></td>
+                <td><p><input class="form_uc" type="text" name="pat_name" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.4}}</p></td>
+                <td><p><input class="form_uc" type="text" name="nick" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.5}}</p></td>
+                <td><p><input class="form_uc" type="date" name="date_reg" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.5}}</p></td>
+                <td><p><input class="form_uc" type="date" name="date_b" required></p></td>
+            </tr>
+        {% else %}
+            <tr>
+                <td><p>{{list.1}}</p></td>
+
+                <td><p><input class="form_uc" type="text" name="name_t" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.2}}</p></td>
+                <td><p><input class="form_uc" type="date" name="date_cr" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.3}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_post" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.4}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_view" required></p></td>
+            </tr>
+            <tr>
+                <td><p>{{list.5}}</p></td>
+                <td><p><input class="form_uc" type="number" min="0" name="n_like" required></p></td>
+            </tr>
+        {% endif %}
+        <tr>
+            <td><p><input class="but_uc" type="submit" name="save" value="Сохранить изменения"></p></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

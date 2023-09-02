@@ -1,0 +1,98 @@
+header {
+    background: linear-gradient(#E0D4AD, #38888C)
+}
+
+ul {
+    list-style: none;
+    padding: 20px;
+}
+
+p {
+    font-family: fantasy;
+    font-size: 40px;
+    padding: 5px;
+    color:  #38888C;
+    text-decoration: none;
+}
+
+a {
+    font-family: fantasy;
+    font-size: 40px;
+    padding: 20px;
+    color: #582A8C;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #780A51;
+    text-decoration: none;
+}
+
+#image-button {
+  width: 80px;
+  height: 80px;
+  margin: 10px;
+  border: none;
+  background: url('../images/create.png') no-repeat;
+  background-size: 80px;
+}
+
+#image-button1 {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border: none;
+  background: url('../images/delete.png') 100% 100% no-repeat;
+  background-size: 20px;
+}
+
+#image-button2 {
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border: none;
+  background: url('../images/update.png') 100% 100% no-repeat;
+  background-size: 20px;
+}
+
+#id_rec {
+    border: none;
+    width: 20px;
+}
+
+.new_p {
+    font-family: fantasy;
+    font-size: 30px;
+    padding: 5px;
+    color:  #38888C;
+    text-decoration: none;
+}
+
+td {
+    text-align:center;
+}
+
+.form_up {
+    font-family: fantasy;
+    font-size: 30px;
+    width: 200px;
+    color: #582A8C;
+}
+
+#text_up {
+    width: 600px;
+    font-family: fantasy;
+    font-size: 30px;
+    color: #582A8C;
+}
+
+#button_up {
+    font-family: fantasy;
+    font-size: 30px;
+    text-decoration:none;
+    padding:10px 20px;
+    color:#582A8C;
+    background:#FFFFFF;
+    border-radius:8px;
+    border:2px solid #582A8C;
+}

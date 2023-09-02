@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p align="center" class="P">Регистрация</p>
+
+    <form action="{% url 'register' %}" method="post">
+        <table class="tab_form">
+            <tr>
+                <td><p><label for="id_username">Имя пользователя</label></p></td>
+                <td><input id="id_username" type="text" name="username" maxlength="30"/></td>
+            </tr>
+            <tr>
+                <td><p><label for="id_password1">Пароль</label></p></td>
+                <td><input type="password" name="password1" id="id_password1" /></td>
+            </tr>
+            <tr>
+                <td><p><label for="id_password2">Пароль повторно</label></p></td>
+                <td><input type="password" name="password2" id="id_password2" /></td>
+            </tr>
+        </table>
+        {% csrf_token %}
+        <button class="but_uc" type="submit">Зарегистрироваться</button>
+    </form>
+
+{% endblock %}

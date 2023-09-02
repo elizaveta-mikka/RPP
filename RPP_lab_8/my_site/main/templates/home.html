@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p align="center">Пользователи</p>
+<table class="d_tables" align="center">
+        <thead>
+            <tr>
+                {% for it in list_us %}
+                <th>{{it}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for u in users %}
+            <tr>
+                <td>{{u.pk}}</td>
+                <td>{{u.surname}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.pat_name}}</td>
+                <td>{{u.nick}}</td>
+                <td>{{u.date_reg}}</td>
+                <td>{{u.date_b}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+
+<p align="center">Посты</p>
+<table class="d_tables" align="center">
+        <thead>
+            <tr>
+                {% for it in list_post %}
+                <th>{{it}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for p in posts %}
+            <tr>
+                <td>{{p.pk}}</td>
+                <td>{{p.date_post}}</td>
+                <td>{{p.n_view}}</td>
+                <td>{{p.n_like}}</td>
+                <td>{{p.n_comm}}</td>
+                <td>{% for aut in p.id_author.all %}  {{aut.pk}}   {% endfor %}</td>
+                <td>{% for top in p.id_topic.all %}  {{top.pk}}   {% endfor %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+
+<p align="center">Авторы</p>
+<table class="d_tables" align="center">
+        <thead>
+            <tr>
+                {% for it in list_aut %}
+                <th>{{it}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for a in authors %}
+            <tr>
+                <td>{{a.id_user_id}}</td>
+                <td>{{a.n_post}}</td>
+                <td>{{a.n_view}}</td>
+                <td>{{a.n_like}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+
+<p align="center">Темы обсуждения</p>
+<table class="d_tables" align="center">
+        <thead>
+            <tr>
+                {% for it in list_top %}
+                <th>{{it}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for t in topics %}
+            <tr>
+                <td>{{t.pk}}</td>
+                <td>{{t.name_t}}</td>
+                <td>{{t.date_cr}}</td>
+                <td>{{t.n_post}}</td>
+                <td>{{t.n_view}}</td>
+                <td>{{t.n_like}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+
+<p align="center">Комментарии</p>
+<table class="d_tables" align="center">
+        <thead>
+            <tr>
+                {% for it in list_com %}
+                <th>{{it}}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for c in comments %}
+            <tr>
+                <td>{{c.pk}}</td>
+                <td>{{c.id_post}}</td>
+                <td>{{c.id_user}}</td>
+                <td>{{c.date}}</td>
+                <td>{{c.text}}</td>
+                <td>{{c.n_like}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p align="center">Редактирование</p>
+    <p>Доступно редактирование следующих сущностей:</p>
+    <ul class="edit">
+        <li><i><a href="{% url 'users' %}" class="a_edit">Пользователи</a></i></li>
+        <li><i><a href="{% url 'posts' %}" class="a_edit">Посты</a></i></li>
+        <li><i><a href="{% url 'authors' %}" class="a_edit">Авторы</a></i></li>
+        <li><i><a href="{% url 'topics' %}" class="a_edit">Темы обсуждения</a></i></li>
+        <li><i><a href="{% url 'comments' %}" class="a_edit">Комментарии</a></i></li>
+    </ul>
+
+
+{% endblock %}
